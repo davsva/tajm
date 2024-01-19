@@ -9,6 +9,105 @@
     </header>
     <main>
         <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="startTimeInput" maxlength="5" placeholder="00:00">
+                    </div>        
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="endTimeInput" maxlength="5" placeholder="00:00">
+                    </div>                            
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="buttonTimeInput">&#9166;</button>
+                    </div>                            
+                </div>
+                <div class="col-7">                    
+                </div>
+            </div>  
+
+
+
+            <div id="year" class="year"></div>
+            <div class="month-container">
+                <div class="calendar-buttons">
+                    <div id="prevMonthButton" class="button-small">&lt;</div>    
+                    <div id="nextMonthButton" class="button-small">&gt;</div>
+                    <div id="todayButton" class="button-small">T</div>    
+                </div>
+                <div id="month" class="month"></div>
+                <div class="calendar-buttons">
+                </div>
+            </div>
+        
+            <div id="cal-container">
+                <div class="cal-cell cal-cell-header" id="cell-header-1">#</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-2">Mo</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-3">Tu</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-4">We</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-5">Th</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-6">Fr</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-7">Sa</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-8">Su</div>
+                <div class="cal-week" id="cell-data-1"></div>
+                <div class="cal-cell" id="cell-data-2"></div>
+                <div class="cal-cell" id="cell-data-3"></div>
+                <div class="cal-cell" id="cell-data-4"></div>
+                <div class="cal-cell" id="cell-data-5"></div>
+                <div class="cal-cell" id="cell-data-6"></div>
+                <div class="cal-cell" id="cell-data-7"></div>
+                <div class="cal-cell" id="cell-data-8"></div>
+                <div class="cal-week" id="cell-data-9"></div>
+                <div class="cal-cell" id="cell-data-10"></div>
+                <div class="cal-cell" id="cell-data-11"></div>
+                <div class="cal-cell" id="cell-data-12"></div>
+                <div class="cal-cell" id="cell-data-13"></div>
+                <div class="cal-cell" id="cell-data-14"></div>
+                <div class="cal-cell" id="cell-data-15"></div>
+                <div class="cal-cell" id="cell-data-16"></div>
+                <div class="cal-week" id="cell-data-17"></div>
+                <div class="cal-cell" id="cell-data-18"></div>
+                <div class="cal-cell" id="cell-data-19"></div>
+                <div class="cal-cell" id="cell-data-20"></div>
+                <div class="cal-cell" id="cell-data-21"></div>
+                <div class="cal-cell" id="cell-data-22"></div>
+                <div class="cal-cell" id="cell-data-23"></div>
+                <div class="cal-cell" id="cell-data-24"></div>
+                <div class="cal-week" id="cell-data-25"></div>
+                <div class="cal-cell" id="cell-data-26"></div>
+                <div class="cal-cell" id="cell-data-27"></div>
+                <div class="cal-cell" id="cell-data-28"></div>
+                <div class="cal-cell" id="cell-data-29"></div>
+                <div class="cal-cell" id="cell-data-30"></div>
+                <div class="cal-cell" id="cell-data-31"></div>
+                <div class="cal-cell" id="cell-data-32"></div>
+                <div class="cal-week" id="cell-data-33"></div>
+                <div class="cal-cell" id="cell-data-34"></div>
+                <div class="cal-cell" id="cell-data-35"></div>
+                <div class="cal-cell" id="cell-data-36"></div>
+                <div class="cal-cell" id="cell-data-37"></div>
+                <div class="cal-cell" id="cell-data-38"></div>
+                <div class="cal-cell" id="cell-data-39"></div>
+                <div class="cal-cell" id="cell-data-40"></div>
+                <div class="cal-week" id="cell-data-41"></div>
+                <div class="cal-cell" id="cell-data-42"></div>
+                <div class="cal-cell" id="cell-data-43"></div>
+                <div class="cal-cell" id="cell-data-44"></div>
+                <div class="cal-cell" id="cell-data-45"></div>
+                <div class="cal-cell" id="cell-data-46"></div>
+                <div class="cal-cell" id="cell-data-47"></div>
+                <div class="cal-cell" id="cell-data-48"></div>
+            </div>
+        
+
+
+
+
+
+
             <h1>Cool notes</h1>
             <ul>
                 <% notes.forEach(function(note) { %>

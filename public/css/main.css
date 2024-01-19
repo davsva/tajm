@@ -1,0 +1,111 @@
+.button {
+    background-color: white;
+    border: 2px solid #04AA6D;
+    color: black;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.button:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.button-small {
+    background-color: white;
+    border: 2px solid #04AA6D;
+    color: black;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 2px 1px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.button-small:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+#cal-container {
+    display: grid;
+    width: 600px;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+}
+
+.cal-cell {
+    /* border: 1px dotted red; */
+    text-align: right;
+}
+
+.cal-week {
+    /* border: 1px dotted red; */
+    text-align: center;
+}
+
+.cal-cell-header {
+    background-color: #bbb;
+    text-align: center;
+}
+
+.year {
+    font-size: 40px;
+    width: 600px;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+.month-container {
+    display: grid;
+    width: 600px;
+    grid-template-columns: auto 300px auto;
+    box-sizing: border-box;
+}
+
+.month {
+    font-size: 25px;
+    text-align: center;
+}
+
+.calendar-buttons {
+    width: 150px;
+}
+
+.red-text {
+    color: red;
+}
+
+.today {
+    font-weight: bold;
+    border: 1px solid #04AA6D;
+    border-radius: 10%;
+}
+
+.cal-cell-filled:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.time-entry-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 600px;
+}
+
+.time-entry {
+    width: 40px;
+}
