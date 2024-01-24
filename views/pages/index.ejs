@@ -10,6 +10,16 @@
     <main>
         <div class="jumbotron">
             <div class="row">
+                <div class="col-12">
+                    <h3 id="selectedDateElement"></h3>                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="tempNote" placeholder="please, write note">
+                    </div>        
+                </div>
                 <div class="col-sm">
                     <div class="form-group">
                         <input type="text" class="form-control" id="startTimeInput" maxlength="5" placeholder="00:00">
@@ -25,11 +35,9 @@
                         <button type="button" class="btn btn-primary" id="buttonTimeInput">&#9166;</button>
                     </div>                            
                 </div>
-                <div class="col-7">                    
+                <div class="col-6">                    
                 </div>
             </div>  
-
-
 
             <div id="year" class="year"></div>
             <div class="month-container">
@@ -45,13 +53,13 @@
         
             <div id="cal-container">
                 <div class="cal-cell cal-cell-header" id="cell-header-1">#</div>
-                <div class="cal-cell cal-cell-header" id="cell-header-2">Mo</div>
-                <div class="cal-cell cal-cell-header" id="cell-header-3">Tu</div>
-                <div class="cal-cell cal-cell-header" id="cell-header-4">We</div>
-                <div class="cal-cell cal-cell-header" id="cell-header-5">Th</div>
-                <div class="cal-cell cal-cell-header" id="cell-header-6">Fr</div>
-                <div class="cal-cell cal-cell-header" id="cell-header-7">Sa</div>
-                <div class="cal-cell cal-cell-header" id="cell-header-8">Su</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-2">Mon</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-3">Tue</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-4">Wed</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-5">Thu</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-6">Fri</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-7">Sat</div>
+                <div class="cal-cell cal-cell-header" id="cell-header-8">Sun</div>
                 <div class="cal-week" id="cell-data-1"></div>
                 <div class="cal-cell" id="cell-data-2"></div>
                 <div class="cal-cell" id="cell-data-3"></div>
@@ -101,20 +109,9 @@
                 <div class="cal-cell" id="cell-data-47"></div>
                 <div class="cal-cell" id="cell-data-48"></div>
             </div>
-        
-
-
-
-
-
 
             <h1>Cool notes</h1>
-            <ul>
-                <% notes.forEach(function(note) { %>
-                    <li>
-                        <strong><%= note.description %></strong>
-                    </li>
-                <% }); %>
+            <ul id="notesElement">
             </ul>
         </div>
 

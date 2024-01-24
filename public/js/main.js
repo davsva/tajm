@@ -86,8 +86,14 @@ const calContainer = document.getElementById("cal-container");
 const startTime = document.getElementById("startTimeInput");
 const endTime = document.getElementById("endTimeInput");
 
+const selectedDateElement = document.getElementById("selectedDateElement");
+
+const tempNote = document.getElementById("tempNote");
+const buttonTimeInput = document.getElementById("buttonTimeInput");
+
 let currentDate = new Date();
 let showingDate = currentDate;
+let selectedDate = currentDate;
 
 prevMonthButton.addEventListener("click", (event) => { // eslint-disable-line no-unused-vars
     showingDate = new Date(showingDate.getFullYear(), showingDate.getMonth() - 1, 1);
@@ -104,12 +110,20 @@ todayButton.addEventListener("click", (event) => { // eslint-disable-line no-unu
     showingDate = currentDate;
     showingDate = new Date(showingDate.getFullYear(), showingDate.getMonth(), 1);
     fillCalendar(showingDate.getFullYear(), showingDate.getMonth());
+
+    // Today button means also that we select today!
+    selectedDate = currentDate;
+    let dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    selectedDateElement.innerHTML = selectedDate.toLocaleDateString("sv-SE", dateOptions);
 });
 
 calContainer.addEventListener("click", (event) => {
     const target = event.target;
     if (target.classList.contains("cal-cell-filled")) {
         console.log("clicked on day = " + target.innerHTML + " in year " + showingDate.getFullYear() + " of month " + showingDate.getMonth());
+        selectedDate = new Date(showingDate.getFullYear(), showingDate.getMonth(), target.innerHTML);
+        let dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        selectedDateElement.innerHTML = selectedDate.toLocaleDateString("sv-SE", dateOptions);
     }
 });
 
@@ -176,6 +190,51 @@ startTime.addEventListener("keyup", (event) => {
 endTime.addEventListener("keyup", (event) => {
     validateTimeField(event);
 }); 
+
+buttonTimeInput.addEventListener("click", (event) => { // eslint-disable-line no-unused-vars
+    console.log("lets try to add the note");
+    // Create note
+    let note = {
+        description: tempNote.value
+    };
+    // Send it to BE
+    fetch("api/note", {
+        method: "POST",
+        headers: {
+            "Content-Type":  "application/json"
+        },
+        body: JSON.stringify(note)
+    })
+    .then(function(res) {
+        if (! res.ok) {
+            alert("Server Error: " + res.status);
+        } else {            
+            // Update the DOM
+            const notesElement = document.getElementById("notesElement");
+            notesElement.innerHTML += `<li><strong>${note.description}</strong></li>`;
+        }
+    });
+
+});
+
+// Retrive all notes and render them
+fetch("api/notes", {
+    method: "GET",
+    headers: {
+        "Content-Type":  "application/json"
+    }
+})
+.then(res => res.json())
+.then(res => {
+    res.forEach(note => {
+        // Update the DOM
+        const notesElement = document.getElementById("notesElement");
+        notesElement.innerHTML += `<li><strong>${note.description}</strong></li>`;
+    });
+});
+
+let dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+selectedDateElement.innerHTML = selectedDate.toLocaleDateString("sv-SE", dateOptions);
 
 todayButton.innerHTML = currentDate.getDate();
 fillCalendar(showingDate.getFullYear(), showingDate.getMonth());

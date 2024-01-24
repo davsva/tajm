@@ -43,13 +43,19 @@
 
 #cal-container {
     display: grid;
-    width: 600px;
+    width: 400px;
     grid-template-columns: auto auto auto auto auto auto auto auto;
 }
 
 .cal-cell {
     /* border: 1px dotted red; */
-    text-align: right;
+    text-align: center;
+
+    transition-duration: 0.2s;
+    cursor: pointer;
+    user-select: none;
+
+
 }
 
 .cal-week {
@@ -92,12 +98,13 @@
 .today {
     font-weight: bold;
     border: 1px solid #04AA6D;
-    border-radius: 10%;
+    border-radius: 50%;
 }
 
 .cal-cell-filled:hover {
     background-color: #04AA6D;
     color: white;
+    border-radius: 50%;
 }
 
 .time-entry-container {
